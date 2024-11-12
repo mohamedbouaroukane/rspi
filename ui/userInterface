@@ -1,0 +1,94 @@
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QLineEdit, QLabel, QStackedWidget
+from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import Qt
+
+class SwiftBoxApp(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.setWindowTitle('Swift Box')
+        self.setGeometry(100, 100, 300, 400)
+
+        self.stacked_widget = QStackedWidget()
+        
+        # Create pages
+        self.page1 = self.createPinCodePage()
+        self.page2 = self.createScanningBarcodePage()
+        self.page3 = self.createCollectDropPage()
+
+        # Add pages to stacked widget
+        self.stacked_widget.addWidget(self.page1)
+        self.stacked_widget.addWidget(self.page2)
+        self.stacked_widget.addWidget(self.page3)
+
+        layout = QVBoxLayout()
+        layout.addWidget(self.stacked_widget)
+        self.setLayout(layout)
+
+    def createPinCodePage(self):
+        page = QWidget()
+        layout = QVBoxLayout()
+
+        pin_input = QLineEdit()
+        pin_input.setPlaceholderText("Pin Code")
+        layout.addWidget(pin_input)
+
+        numpad = QWidget()
+        numpad_layout = QVBoxLayout()
+        
+        for i in range(0, 9, 3):
+            row = QHBoxLayout()
+            for j in range(3):
+                btn = QPushButton(str(i + j + 1))
+                row.addWidget(btn)
+            numpad_layout.addLayout(row)
+        
+        zero_row = QHBoxLayout()
+        zero_row.addWidget(QPushButton("0"))
+        enter_btn = QPushButton("ENTER")
+        enter_btn.setStyleSheet("background-color: orange;")
+        zero_row.addWidget(enter_btn)
+        numpad_layout.addLayout(zero_row)
+
+        numpad.setLayout(numpad_layout)
+        layout.addWidget(numpad)
+
+        page.setLayout(layout)
+        return page
+
+    def createScanningBarcodePage(self):
+        page = QWidget()
+        layout = QVBoxLayout()
+
+        icon = QLabel()
+        icon.setPixmap(QIcon("barcode_icon.png").pixmap(100, 100))
+        layout.addWidget(icon, alignment=Qt.AlignCenter)
+
+        label = QLabel("Scaning Barcode")
+        layout.addWidget(label, alignment=Qt.AlignCenter)
+
+        page.setLayout(layout)
+        return page
+
+    def createCollectDropPage(self):
+        page = QWidget()
+        layout = QVBoxLayout()
+
+        collect_btn = QPushButton("COLLECT PARCEL")
+        collect_btn.setStyleSheet("background-color: orange;")
+        layout.addWidget(collect_btn)
+
+        drop_btn = QPushButton("DROP PARCEL")
+        layout.addWidget(drop_btn)
+
+        page.setLayout(layout)
+        return page
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = SwiftBoxApp()
+    ex.show()
+    sys.exit(app.exec_())
