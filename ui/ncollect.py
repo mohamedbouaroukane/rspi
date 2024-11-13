@@ -197,8 +197,11 @@ class CollectParcelWindow(object):
         self.pushButton_11.clicked.connect(lambda: self.update_text_field(8))
         self.pushButton_7.clicked.connect(lambda: self.update_text_field(9))
         self.pushButton_8.clicked.connect(lambda: self.update_text_field(0))
+
         self.click_sound = QSound(assetsURL+"/clickSound.wav")
         self.pushButton_9.clicked.connect(self.enter_code)
+        self.pushButton_12.clicked.connect(self.delete_last_number)
+
         
 
         self.retranslateUi(MainWindow)
