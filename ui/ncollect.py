@@ -12,11 +12,13 @@ from time import sleep
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtMultimedia import QSound
 
+from lockercontrol.relay import RelayController
+
 
 class Ui_MainWindow(object):
     def __init__(self):
         self.sound = self
-        self.relay_controller = self  # Assuming you have a relay controller object
+        self.relay_controller = RelayController(4)  # Assuming you have a relay controller object
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
