@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>570</width>
+    <width>450</width>
     <height>766</height>
    </rect>
   </property>
@@ -17,8 +17,8 @@
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>-1</x>
-      <y>-1</y>
+      <x>-10</x>
+      <y>-10</y>
       <width>581</width>
       <height>771</height>
      </rect>
@@ -37,8 +37,8 @@ background-color:#fff
     <widget class="QFrame" name="DropParcelBtn">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>200</y>
+       <x>80</x>
+       <y>120</y>
        <width>201</width>
        <height>251</height>
       </rect>
@@ -131,8 +131,8 @@ cursor:pointer</string>
     <widget class="QFrame" name="CollectParcelBtn">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>200</y>
+       <x>80</x>
+       <y>400</y>
        <width>201</width>
        <height>251</height>
       </rect>
@@ -204,9 +204,6 @@ border-radius:7px</string>
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="../../test.qrc"/>
-  <include location="../../../../../test.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

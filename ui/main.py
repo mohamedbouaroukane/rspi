@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets
-from ui.home import Ui_MainWindow as HomeWindow
+from ui.nhome import Ui_MainWindow as HomeWindow
 from ui.drop_parcel import Ui_MainWindow as DropParcelWindow
 from ui.collect_parcel import  CollectParcelWindow
 from ui.courier_access import Ui_MainWindow as CourierAccessWindow
