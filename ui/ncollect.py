@@ -188,7 +188,7 @@ class Ui_MainWindow(object):
         self.pushButton_11.raise_()
         self.label_4.raise_()
         self.pushButton_12.raise_()
-        MainWindow.setCentralWidget(self.centralwidget)
+        
 
         self.click_sound = QSound("C:/Users/user/Desktop/Parcel Locker Microcontroller/ui/assets/clickSound.wav")
         self.pushButton.clicked.connect(lambda: self.update_text_field(1))

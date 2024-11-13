@@ -26,11 +26,11 @@ class MainApp(QtWidgets.QMainWindow):
         self.collect_parcel_window = CollectParcelWindow()
         self.courier_access_window = CourierAccessWindow()
         self.courier_access_send_window = CourierAccessSendWindow()
-
+        self.showFullScreen()
         
         self.drop_parcel_window.setupUi(self)
         self.collect_parcel_window.setupUi(self)
-
+        self.showFullScreen()
         self.home_window.setupUi(self)
         self.home_window.pushButton.clicked.connect(self.show_drop_parcel)
         self.home_window.pushButton_2.clicked.connect(self.show_collect_parcel)
