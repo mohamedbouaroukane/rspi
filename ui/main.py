@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets
 from ui.nhome import Ui_MainWindow as HomeWindow
 from ui.drop_parcel import Ui_MainWindow as DropParcelWindow
-from ui.collect_parcel import  CollectParcelWindow
+from ui.ncollect import  CollectParcelWindow
 from ui.courier_access import Ui_MainWindow as CourierAccessWindow
 from ui.util.sound import sound_player
 from ui.send_parcels import Ui_MainWindow as CourierAccessSendWindow

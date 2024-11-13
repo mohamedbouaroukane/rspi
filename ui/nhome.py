@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from config import assetsURL
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.DropParcelBtn = QtWidgets.QFrame(self.frame)
-        self.DropParcelBtn.setGeometry(QtCore.QRect(80, 120, 201, 251))
+        self.DropParcelBtn.setGeometry(QtCore.QRect(150, 120, 201, 251))
         self.DropParcelBtn.setAutoFillBackground(False)
         self.DropParcelBtn.setStyleSheet("#DropParcelBtn{\n"
 "border:2px solid;\n"
@@ -50,18 +50,18 @@ class Ui_MainWindow(object):
         self.label.setGeometry(QtCore.QRect(50, 50, 101, 111))
         self.label.setStyleSheet("background-color:none")
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("C:/Users/user/Desktop/Parcel Locker Microcontroller/ui/assets/Drop-parcel.png"))
+        self.label.setPixmap(QtGui.QPixmap(assetsURL+"/Drop-parcel.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.label_3 = QtWidgets.QLabel(self.frame)
         self.label_3.setGeometry(QtCore.QRect(0, 0, 91, 91))
         self.label_3.setStyleSheet("background-color:none")
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("C:/Users/user/Desktop/Parcel Locker Microcontroller/ui/assets/Logo-icon-outline-mix.png"))
+        self.label_3.setPixmap(QtGui.QPixmap(assetsURL+"/Logo-icon-outline-mix.png"))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
         self.CollectParcelBtn = QtWidgets.QFrame(self.frame)
-        self.CollectParcelBtn.setGeometry(QtCore.QRect(80, 400, 201, 251))
+        self.CollectParcelBtn.setGeometry(QtCore.QRect(150, 400, 201, 251))
         self.CollectParcelBtn.setAutoFillBackground(False)
         self.CollectParcelBtn.setStyleSheet("#CollectParcelBtn{\n"
 "border:2px solid;\n"
@@ -86,7 +86,7 @@ class Ui_MainWindow(object):
         self.label_2.setGeometry(QtCore.QRect(50, 40, 101, 111))
         self.label_2.setStyleSheet("background-color:none")
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("C:/Users/user/Desktop/Parcel Locker Microcontroller/ui/assets/collect-parcel.png"))
+        self.label_2.setPixmap(QtGui.QPixmap(assetsURL+"/collect-parcel.png"))
         self.label_2.setScaledContents(True)
         self.label_2.setObjectName("label_2")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -99,11 +99,3 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "Drop Parcel"))
         self.pushButton_2.setText(_translate("MainWindow", "Collect Parcel"))
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

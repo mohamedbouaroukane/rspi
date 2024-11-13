@@ -37,7 +37,7 @@ background-color:#fff
     <widget class="QFrame" name="DropParcelBtn">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>150</x>
        <y>120</y>
        <width>201</width>
        <height>251</height>
@@ -131,7 +131,7 @@ cursor:pointer</string>
     <widget class="QFrame" name="CollectParcelBtn">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>150</x>
        <y>400</y>
        <width>201</width>
        <height>251</height>

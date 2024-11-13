@@ -10,19 +10,15 @@
 
 from time import sleep
 from PyQt5 import QtCore, QtGui, QtWidgets
+from config import assetsURL
 from PyQt5.QtMultimedia import QSound
 
 from lockercontrol.relay import RelayController
 
-
 class Ui_MainWindow(object):
-    def __init__(self):
-        self.sound = self
-        self.relay_controller = RelayController(4)  # Assuming you have a relay controller object
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(572, 773)
+        MainWindow.resize(450, 773)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
@@ -34,21 +30,21 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.label_3 = QtWidgets.QLabel(self.frame)
-        self.label_3.setGeometry(QtCore.QRect(60, 210, 191, 81))
+        self.label_3.setGeometry(QtCore.QRect(130, 210, 191, 81))
         self.label_3.setStyleSheet("#label_3{\n"
 "font: 87 14pt \"Cairo Black\";\n"
 "    color: rgb(47, 95, 171);\n"
 "}")
         self.label_3.setObjectName("label_3")
         self.label_5 = QtWidgets.QLabel(self.frame)
-        self.label_5.setGeometry(QtCore.QRect(80, 90, 141, 141))
+        self.label_5.setGeometry(QtCore.QRect(160, 90, 141, 141))
         self.label_5.setStyleSheet("background-color:none")
         self.label_5.setText("")
-        self.label_5.setPixmap(QtGui.QPixmap("C:/Users/user/Desktop/Parcel Locker Microcontroller/ui/assets/barcode.png"))
+        self.label_5.setPixmap(QtGui.QPixmap("assets/barcode.png"))
         self.label_5.setScaledContents(True)
         self.label_5.setObjectName("label_5")
         self.line = QtWidgets.QFrame(self.frame)
-        self.line.setGeometry(QtCore.QRect(20, 310, 331, 3))
+        self.line.setGeometry(QtCore.QRect(60, 310, 331, 3))
         self.line.setStyleSheet("#line{\n"
 "background-color: rgb(47, 95, 171);\n"
 "}")
@@ -56,10 +52,10 @@ class Ui_MainWindow(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.frame)
-        self.plainTextEdit.setGeometry(QtCore.QRect(50, 340, 261, 41))
+        self.plainTextEdit.setGeometry(QtCore.QRect(100, 340, 261, 41))
         self.plainTextEdit.setObjectName("plainTextEdit")
         self.pushButton = QtWidgets.QPushButton(self.frame)
-        self.pushButton.setGeometry(QtCore.QRect(80, 400, 60, 60))
+        self.pushButton.setGeometry(QtCore.QRect(140, 400, 60, 60))
         self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton.setStyleSheet("font: 87 12pt \"Cairo Black\";\n"
 "    background-color: rgb(47, 95, 171);\n"
@@ -67,7 +63,7 @@ class Ui_MainWindow(object):
 "border-radius:7px;")
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_2.setGeometry(QtCore.QRect(150, 400, 60, 60))
+        self.pushButton_2.setGeometry(QtCore.QRect(210, 400, 60, 60))
         self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_2.setStyleSheet("font: 87 12pt \"Cairo Black\";\n"
 "    background-color: rgb(47, 95, 171);\n"
@@ -75,7 +71,7 @@ class Ui_MainWindow(object):
 "border-radius:7px;")
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_3 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_3.setGeometry(QtCore.QRect(220, 400, 60, 60))
+        self.pushButton_3.setGeometry(QtCore.QRect(280, 400, 60, 60))
         self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_3.setStyleSheet("\n"
 "font: 87 12pt \"Cairo Black\";\n"
@@ -84,7 +80,7 @@ class Ui_MainWindow(object):
 "border-radius:7px;")
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_4 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_4.setGeometry(QtCore.QRect(80, 470, 60, 60))
+        self.pushButton_4.setGeometry(QtCore.QRect(140, 470, 60, 60))
         self.pushButton_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_4.setStyleSheet("font: 87 12pt \"Cairo Black\";\n"
 "    background-color: rgb(47, 95, 171);\n"
@@ -92,7 +88,7 @@ class Ui_MainWindow(object):
 "border-radius:7px;")
         self.pushButton_4.setObjectName("pushButton_4")
         self.pushButton_5 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_5.setGeometry(QtCore.QRect(220, 470, 60, 60))
+        self.pushButton_5.setGeometry(QtCore.QRect(280, 470, 60, 60))
         self.pushButton_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_5.setStyleSheet("font: 87 12pt \"Cairo Black\";\n"
 "    background-color: rgb(47, 95, 171);\n"
@@ -100,7 +96,7 @@ class Ui_MainWindow(object):
 "border-radius:7px;")
         self.pushButton_5.setObjectName("pushButton_5")
         self.pushButton_6 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_6.setGeometry(QtCore.QRect(150, 470, 60, 60))
+        self.pushButton_6.setGeometry(QtCore.QRect(210, 470, 60, 60))
         self.pushButton_6.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_6.setStyleSheet("font: 87 12pt \"Cairo Black\";\n"
 "    background-color: rgb(47, 95, 171);\n"
@@ -108,7 +104,7 @@ class Ui_MainWindow(object):
 "border-radius:7px;")
         self.pushButton_6.setObjectName("pushButton_6")
         self.pushButton_8 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_8.setGeometry(QtCore.QRect(150, 610, 60, 60))
+        self.pushButton_8.setGeometry(QtCore.QRect(210, 610, 60, 60))
         self.pushButton_8.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_8.setStyleSheet("font: 87 12pt \"Cairo Black\";\n"
 "    background-color: rgb(47, 95, 171);\n"
@@ -116,7 +112,7 @@ class Ui_MainWindow(object):
 "border-radius:7px;")
         self.pushButton_8.setObjectName("pushButton_8")
         self.pushButton_9 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_9.setGeometry(QtCore.QRect(220, 610, 61, 60))
+        self.pushButton_9.setGeometry(QtCore.QRect(280, 610, 61, 60))
         self.pushButton_9.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_9.setStyleSheet("font: 87 12pt \"Cairo Black\";\n"
 "background-color: rgb(250, 169, 25);\n"
@@ -124,7 +120,7 @@ class Ui_MainWindow(object):
 "border-radius:7px;")
         self.pushButton_9.setObjectName("pushButton_9")
         self.pushButton_7 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_7.setGeometry(QtCore.QRect(220, 540, 60, 60))
+        self.pushButton_7.setGeometry(QtCore.QRect(280, 540, 60, 60))
         self.pushButton_7.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_7.setStyleSheet("font: 87 12pt \"Cairo Black\";\n"
 "    background-color: rgb(47, 95, 171);\n"
@@ -132,7 +128,7 @@ class Ui_MainWindow(object):
 "border-radius:7px;")
         self.pushButton_7.setObjectName("pushButton_7")
         self.pushButton_10 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_10.setGeometry(QtCore.QRect(80, 540, 60, 60))
+        self.pushButton_10.setGeometry(QtCore.QRect(140, 540, 60, 60))
         self.pushButton_10.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_10.setStyleSheet("font: 87 12pt \"Cairo Black\";\n"
 "    background-color: rgb(47, 95, 171);\n"
@@ -140,7 +136,7 @@ class Ui_MainWindow(object):
 "border-radius:7px;")
         self.pushButton_10.setObjectName("pushButton_10")
         self.pushButton_11 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_11.setGeometry(QtCore.QRect(150, 540, 60, 60))
+        self.pushButton_11.setGeometry(QtCore.QRect(210, 540, 60, 60))
         self.pushButton_11.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_11.setStyleSheet("font: 87 12pt \"Cairo Black\";\n"
 "    background-color: rgb(47, 95, 171);\n"
@@ -150,7 +146,7 @@ class Ui_MainWindow(object):
         self.label_4 = QtWidgets.QLabel(self.frame)
         self.label_4.setGeometry(QtCore.QRect(20, 20, 51, 51))
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("C:/Users/user/Desktop/Parcel Locker Microcontroller/ui/assets/back-icon.png"))
+        self.label_4.setPixmap(QtGui.QPixmap("assets/back-icon.png"))
         self.label_4.setScaledContents(False)
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_4.setObjectName("label_4")
@@ -163,7 +159,7 @@ class Ui_MainWindow(object):
         self.back.setText("")
         self.back.setObjectName("back")
         self.pushButton_12 = QtWidgets.QPushButton(self.frame)
-        self.pushButton_12.setGeometry(QtCore.QRect(80, 610, 60, 60))
+        self.pushButton_12.setGeometry(QtCore.QRect(140, 610, 60, 60))
         self.pushButton_12.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_12.setStyleSheet("font: 87 12pt \"Cairo Black\";\n"
 "background-color: rgb(243, 243, 243);\n"
@@ -188,9 +184,7 @@ class Ui_MainWindow(object):
         self.pushButton_11.raise_()
         self.label_4.raise_()
         self.pushButton_12.raise_()
-        
-
-        self.click_sound = QSound("C:/Users/user/Desktop/Parcel Locker Microcontroller/ui/assets/clickSound.wav")
+        MainWindow.setCentralWidget(self.centralwidget)
         self.pushButton.clicked.connect(lambda: self.update_text_field(1))
         self.pushButton_2.clicked.connect(lambda: self.update_text_field(2))
         self.pushButton_3.clicked.connect(lambda: self.update_text_field(3))
@@ -201,8 +195,14 @@ class Ui_MainWindow(object):
         self.pushButton_11.clicked.connect(lambda: self.update_text_field(8))
         self.pushButton_7.clicked.connect(lambda: self.update_text_field(9))
         self.pushButton_8.clicked.connect(lambda: self.update_text_field(0))
-        self.pushButton_9.clicked.connect(lambda: self.enter_code())
-        self.pushButton_12.clicked.connect(lambda: self.delete_last_number())
+        self.click_sound = QSound(assetsURL+"/clickSound.wav")
+        self.pushButton_9.clicked.connect(self.enter_code)
+        
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.relay_controller = RelayController(4)
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -222,35 +222,22 @@ class Ui_MainWindow(object):
         self.pushButton_10.setText(_translate("MainWindow", "7"))
         self.pushButton_11.setText(_translate("MainWindow", "8"))
         self.pushButton_12.setText(_translate("MainWindow", "-"))
+   
 
     def update_text_field(self, digit):
-        current_text = self.plainTextEdit.toPlainText()
-        self.plainTextEdit.setPlainText(current_text + str(digit))
-        self.play_click_sound()
-
+            current_text = self.plainTextEdit.toPlainText()
+            self.plainTextEdit.setPlainText(current_text + str(digit))
+            self.sound.play_click_sound()
     def delete_last_number(self):
         current_text = self.plainTextEdit.toPlainText()
         if current_text:
-            new_text = current_text[:-1]  # Remove the last character
-            self.plainTextEdit.setPlainText(new_text)
-            self.play_click_sound()
-
+                new_text = current_text[:-1]  # Remove the last character
+                self.plainTextEdit.setPlainText(new_text)
+                self.sound.play_click_sound()  
     def enter_code(self):
         current_text = self.plainTextEdit.toPlainText()
         if current_text:
-            print(current_text)
-            self.relay_controller.turn_on()
-            sleep(5)
-            self.relay_controller.turn_off()
-
-    def play_click_sound(self):
-        self.click_sound.play()
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+                print(current_text)    
+                self.relay_controller.turn_on()
+                sleep(5)
+                self.relay_controller.turn_off()
