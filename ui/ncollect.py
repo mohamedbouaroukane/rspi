@@ -14,9 +14,11 @@ from config import assetsURL
 from PyQt5.QtMultimedia import QSound
 
 from lockercontrol.relay import RelayController
+from ui.util.sound import sound_player
 
-class Ui_MainWindow(object):
+class CollectParcelWindow(object):
     def setupUi(self, MainWindow):
+        self.sound = sound_player()
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(450, 773)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -40,7 +42,7 @@ class Ui_MainWindow(object):
         self.label_5.setGeometry(QtCore.QRect(160, 90, 141, 141))
         self.label_5.setStyleSheet("background-color:none")
         self.label_5.setText("")
-        self.label_5.setPixmap(QtGui.QPixmap("assets/barcode.png"))
+        self.label_5.setPixmap(QtGui.QPixmap(assetsURL+"/barcode.png"))
         self.label_5.setScaledContents(True)
         self.label_5.setObjectName("label_5")
         self.line = QtWidgets.QFrame(self.frame)
@@ -146,7 +148,7 @@ class Ui_MainWindow(object):
         self.label_4 = QtWidgets.QLabel(self.frame)
         self.label_4.setGeometry(QtCore.QRect(20, 20, 51, 51))
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("assets/back-icon.png"))
+        self.label_4.setPixmap(QtGui.QPixmap(assetsURL+"/back-icon.png"))
         self.label_4.setScaledContents(False)
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_4.setObjectName("label_4")
